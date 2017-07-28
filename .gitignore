@@ -1,0 +1,20 @@
+*.class
+
+*.jar
+*.war
+*.ear
+
+hs_err_pid*
+
+styles.css
+styles.scss.cache
+
+nb-configuration.xml
+
+# IDE metadata
+.project
+.classpath
+.settings/
+*.iml
+
+target/

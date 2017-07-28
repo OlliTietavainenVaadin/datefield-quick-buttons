@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.vaadin:addon-test-helpers:2.0.alpha5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/vaadin/addon-test-helpers/2.0.alpha5/addon-test-helpers-2.0.alpha5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/vaadin/addon-test-helpers/2.0.alpha5/addon-test-helpers-2.0.alpha5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/vaadin/addon-test-helpers/2.0.alpha5/addon-test-helpers-2.0.alpha5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact name="datefield-quick-buttons:GWT">
+    <output-path>$PROJECT_DIR$/target/testwebapp/VAADIN/widgetsets</output-path>
+    <root id="root">
+      <element id="directory" name="VAADIN">
+        <element id="directory" name="widgetsets">
+          <element id="gwt-compiler-output" facet="datefield-quick-buttons/gwt/GWT" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
