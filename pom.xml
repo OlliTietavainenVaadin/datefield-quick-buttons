@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.vaadin.addons.datefieldquickbuttons</groupId>
     <artifactId>datefield-quick-buttons</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>bundle</packaging>
     <organization>
         <name>Vaadin Community</name>
@@ -21,13 +21,13 @@
         <Vaadin-Addon>${project.artifactId}-${project.version}.jar</Vaadin-Addon>
     </properties>
     <scm>
-        <url>https://github.com/your-github-account/datefield-quick-buttons</url>
-        <connection>scm:git:git://github.com/your-github-account/datefield-quick-buttons.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:/your-github-account/datefield-quick-buttons.git</developerConnection>
+        <url>https://github.com/OlliTietavainenVaadin/datefield-quick-buttons</url>
+        <connection>scm:git:git://github.com/OlliTietavainenVaadin/datefield-quick-buttons.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:/OlliTietavainenVaadin/datefield-quick-buttons.git</developerConnection>
     </scm>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/your-github-account/datefield-quick-buttons/issues</url>
+        <url>https://github.com/OlliTietavainenVaadin/datefield-quick-buttons/issues</url>
     </issueManagement>
     <licenses>
         <license>
