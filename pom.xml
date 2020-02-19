@@ -1,9 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.vaadin.addons.datefieldquickbuttons</groupId>
     <artifactId>datefield-quick-buttons</artifactId>
-    <version>2.0-SNAPSHOT</version>
+    <version>2.0</version>
     <packaging>bundle</packaging>
     <organization>
         <name>Vaadin Community</name>
@@ -24,7 +23,8 @@
         <url>https://github.com/OlliTietavainenVaadin/datefield-quick-buttons</url>
         <connection>scm:git:git://github.com/OlliTietavainenVaadin/datefield-quick-buttons.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:/OlliTietavainenVaadin/datefield-quick-buttons.git</developerConnection>
-    </scm>
+      <tag>datefield-quick-buttons-2.0</tag>
+  </scm>
     <issueManagement>
         <system>GitHub</system>
         <url>https://github.com/OlliTietavainenVaadin/datefield-quick-buttons/issues</url>
@@ -182,23 +182,6 @@
                         <configuration>
                             <skip>${skipTests}</skip>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- build javadocs during development builds as well to 
-             show javadoc syntax issues before release. Remove this 
-             to speed up the build a bit.
-            -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>javadoc</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>
