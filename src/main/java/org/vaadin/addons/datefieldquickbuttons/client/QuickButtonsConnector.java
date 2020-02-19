@@ -2,7 +2,9 @@ package org.vaadin.addons.datefieldquickbuttons.client;
 
 import com.google.gwt.dom.client.DivElement;
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.user.client.Window;
+import com.google.gwt.i18n.client.TimeZone;
+import com.google.gwt.i18n.client.TimeZoneInfo;
+import com.vaadin.client.DateTimeService;
 import com.vaadin.client.ServerConnector;
 import com.vaadin.client.communication.RpcProxy;
 import com.vaadin.client.communication.StateChangeEvent;
@@ -11,7 +13,10 @@ import com.vaadin.client.ui.VButton;
 import com.vaadin.client.ui.VPopupCalendar;
 import com.vaadin.client.ui.datefield.DateFieldConnector;
 import com.vaadin.shared.ui.Connect;
+import com.vaadin.shared.ui.datefield.LocalDateFieldState;
 import org.vaadin.addons.datefieldquickbuttons.DateFieldQuickButtonsExtension;
+
+import java.util.Date;
 
 @Connect(DateFieldQuickButtonsExtension.class)
 public class QuickButtonsConnector extends AbstractExtensionConnector {
@@ -21,21 +26,11 @@ public class QuickButtonsConnector extends AbstractExtensionConnector {
     VPopupCalendar dateFieldWidget;
     VButton button = new VButton();
     VButton button2 = new VButton();
-    // ServerRpc is used to send events to server. Communication implementation
-    // is automatically created here
-    QuickButtonsServerRpc rpc = RpcProxy.create(QuickButtonsServerRpc.class, this);
+
+    private TimeZone timeZone = null;
 
     public QuickButtonsConnector() {
-        // To receive RPC events from server, we register ClientRpc implementation
-        if (1 < 0) {
-            registerRpc(MyComponentClientRpc.class, new MyComponentClientRpc() {
-                public void alert(String message) {
-                    Window.alert(message);
-                }
-            });
 
-            rpc.clicked(null);
-        }
     }
 
     private native void enhance(com.google.gwt.user.client.Element element, String id)/*-{
@@ -46,13 +41,35 @@ public class QuickButtonsConnector extends AbstractExtensionConnector {
     }-*/;
 
     private void executeRpc(String id) {
+        if (BUTTON1.equalsIgnoreCase(id)) {
+            DateTimeService dts = dateFieldWidget.getDateTimeService();
+            String formatString = dateFieldWidget.getFormatString();
+            String dateText = dts.formatDate(new Date(), formatString, timeZone);
+            dateFieldWidget.text.setValue(dateText, true);
+        } else {
+            dateFieldWidget.text.setValue(null, true);
+        }
+        dateFieldWidget.updateBufferedValues();
         dateFieldWidget.closeCalendarPanel();
-        rpc.clicked(id);
+
+
+        //rpc.clicked(id);
     }
+
 
     @Override
     protected void extend(ServerConnector serverConnector) {
+        DateFieldConnector connector = (DateFieldConnector) serverConnector;
         dateFieldWidget = ((DateFieldConnector) serverConnector).getWidget();
+        LocalDateFieldState state = connector.getState();
+        String timeZoneJSON = state.timeZoneJSON;
+        if (timeZoneJSON != null) {
+            TimeZoneInfo timeZoneInfo = TimeZoneInfo
+                    .buildTimeZoneData(timeZoneJSON);
+            timeZone = TimeZone.createTimeZone(timeZoneInfo);
+        } else {
+            timeZone = null;
+        }
         enhance(button.getElement(), BUTTON1);
         enhance(button2.getElement(), BUTTON2);
         DivElement wrapper = Document.get().createDivElement();
